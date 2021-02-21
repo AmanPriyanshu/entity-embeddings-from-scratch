@@ -52,8 +52,8 @@ def generate_dataset(data, n=2):
 def train():
 	data_one_hot = [converter(i) for i in data]
 	data_padded = pad_sequences(data_one_hot)
-	x, y = generate_dataset(data_padded)
-	model = SimpleModel(vocab_size=len(vocab)+1, hidden_size=len(vocab)//4, input_size=2)
+	x, y = generate_dataset(data_padded, 1)
+	model = SimpleModel(vocab_size=len(vocab)+1, hidden_size=len(vocab)//4, input_size=1)
 
 	criterion = torch.nn.CrossEntropyLoss()
 	optimizer = torch.optim.Adam(model.parameters())
